@@ -1,0 +1,7 @@
+'A7777','Maruti','Ritz','Zdi',1200,5,'jan-10','YES','MH','YES',NULL,NULL,201,307
+'B5434','Tata','Indica','V2',1200,5,'feb-08','YES','NP','NO','on-another-tour',102,201,302
+'D2378','Tata','Truck','512',8000,NULL,'dec-04','NO','NP','YES',NULL,NULL,207,308
+'G4534','Volvo','Bus',NULL,9400,50,'mar-2012','YES','NP','NO','on-another-tour',106,205,306
+'T2389','Tata','Bus','AGCL',7500,55,'jun-07','NO','NP','NO','out-of-order',NULL,205,NULL
+'R3434','LandRover','Range Rover','Evoque',5000,5,'dec-13','YES','MH','NO','on-another-tour',105,202,304
+'F4556','Honda','Civic','Zxi',2200,5,'sep-09','YES','MH','NO','on-another-tour',104,203,303

@@ -1,0 +1,12 @@
+#!/bin/bash
+function init()
+{
+put="$1."
+while [[ $time -le 3 ]]
+do
+        echo -en "$put\r"
+        put="$put."
+        sleep 1
+        time=$(($time + 1))
+done
+}

@@ -1,0 +1,14 @@
+#!/bin/bash
+echo "Enter Employee_id: "
+read eid
+sqlplus -s hr/hr <<ENDOFSQL 
+set colsep ,
+set heading off;
+set feedback off;
+set echo off;
+set trimspool on;
+spool file2.csv
+select empid, empname, jobid from myemp where empid=$eid;
+spool off;
+exit;
+ENDOFSQL

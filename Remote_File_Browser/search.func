@@ -1,0 +1,7 @@
+#!/bin/bash
+function search()
+{		#Searching for Directory on Remote host usnig find command
+sshpass -p "$pass" ssh $uname@$ip <<EOB 2>/dev/null > path.tmp
+find / -type d -name $dir_name 2>/dev/null ;
+EOB
+}

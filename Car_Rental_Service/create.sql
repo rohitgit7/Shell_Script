@@ -1,0 +1,10 @@
+create table schemes(scheme_id number(6) primary key, scheme_name varchar2(10), discount number(4,2));
+
+create table vehicles(vehicle_id number(10) primary key,type varchar2(10)not null,scheme_id number(6));
+
+create table customers(cust_id number(3) primary key,cust_name varchar2(20)not null, address varchar2(10),mobile number(12)not null);
+
+create table rent_details(rent_id number(6) primary key, duration number(3), rent_date date, rent_rate number(7,2)not null, city varchar2(40));
+
+create table vehicle_details(reg_no varchar2(6) primary key,make varchar2(10), v_name varchar2(20)not null, model varchar2(10), engine number(6), capacity number(4), yr_make varchar2(10), ac varchar2(3), permit varchar2(5), avail varchar2(3), problem varchar2(40), cust_id number(6), vehicle_id number(10), rent_id number(6)); 
+

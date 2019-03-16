@@ -1,0 +1,36 @@
+#!/bin/bash
+function generate_xml()
+{
+	if [ `cat path.tmp | wc -l` -eq 0 ]	#Checking is Diretory Found or not
+	then
+		echo "Directory Not Found!"
+	elif [ `cat path.tmp | wc -l` -eq 1 ]	#Checking if more than one directories found
+	then
+		path=`cat path.tmp`	#Connecting to remote host and listing the directory
+	        sshpass -p "$pass" ssh $uname@$ip <<EOS 2>/dev/null | sort > dir_data.tmp 
+       		 cd $path				
+	        ls -l | tr -s ' ' | tail -n+2 | cut -d" " -f1,3,6-9     
+EOS
+		echo "<$dir_name>" > rootxml.xml
+	        awk -f create_xml.awk < dir_data.tmp >> rootxml.xml #Generating XML using AWK
+        	echo "</$dir_name>" >> rootxml.xml
+		echo "--------------------------XML-----------------------------"
+	        cat rootxml.xml			#Displaying XML on screen
+		echo "----------------------------------------------------------"
+	else
+		echo -e "\nMore than one Directories Found!"
+		cat path.tmp
+		read -p "Enter Directory's whole path: " whole_path
+		path=$whole_path     #Connecting to remote host and listing the directory
+                sshpass -p "$pass" ssh $uname@$ip <<EOS 2>/dev/null | sort > dir_data.tmp 
+                                               
+                ls -l $path | tr -s ' ' | tail -n+2 | cut -d" " -f1,3,6-9     
+EOS
+                echo "<$dir_name>" > rootxml.xml
+                awk -f create_xml.awk < dir_data.tmp >> rootxml.xml #Generating XML using AWK
+                echo "</$dir_name>" >> rootxml.xml
+                echo "--------------------------XML-----------------------------"
+                cat rootxml.xml                 #Displaying XML on screen
+                echo "----------------------------------------------------------"
+	fi
+}

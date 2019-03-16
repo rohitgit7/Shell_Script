@@ -1,0 +1,15 @@
+#!/bin/bash
+. init.func
+function remote_login()
+{
+echo -e "*********************************************"
+echo -e "*		FILE BROWSER                *"
+echo -e "*********************************************"
+read -p "Enter IP of Remote Host: 192.168.5." ip	#Accepting IP from user
+read -p "Enter User name: " uname			#Accepting Username from user
+read -s -p "Enter Password: " pass			#Accepting Password from user
+echo -e "\n*********************************************"
+ip=192.168.5.$ip
+init connecting			
+ping -c2 $ip > /dev/null 	#Pinging Remote Host
+}

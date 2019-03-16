@@ -1,0 +1,5 @@
+B5434, Tata, Indica, YES, 5, NP, NO, on-another-tour
+G4534, Volvo, Bus, YES, 50, NP, NO, on-another-tour
+T2389, Tata, Bus, NO, 55, NP, NO, out-of-order
+R3434, LandRover, Range, Rover, YES, 5, MH, NO, on-another-tour
+F4556, Honda, Civic, YES, 5, MH, NO, on-another-tour

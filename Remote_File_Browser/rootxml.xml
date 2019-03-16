@@ -1,0 +1,9 @@
+<abc>
+	<Dir>new_dir</Dir>
+	<File>
+		<Name>new.txt</Name>
+		<Owner>oracle</Owner>
+		<Permission>-rw-r--r--</Permission>
+		<Date>Feb 12 21:34</Date>
+	</File>
+</abc>

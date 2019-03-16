@@ -1,0 +1,5 @@
+BEGIN{print "What is your name: "
+getline name < "/dev/tty"}
+
+$2 ~ name{print "Found", name, "in line number", NR}
+END{print "See you", name}

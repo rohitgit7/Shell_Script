@@ -1,0 +1,11 @@
+#!/bin/bash
+name=$1
+for i in 1 2 3
+do
+	mkdir -p $name/$name$i
+	touch $name/$name$i/$name$i
+	date > $name/$name$i/$name$i
+	echo "$name tree created!"
+	#shift
+done
+

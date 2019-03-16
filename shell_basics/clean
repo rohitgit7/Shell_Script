@@ -1,0 +1,10 @@
+#!/bin/bash
+trap "rm /tmp/r1tmp.$$.*;exit" 2
+trap "echo I am not afraid of terminator" 15
+i=0
+while true
+do
+	touch /tmp/r1tmp.$$.$i
+	i=$(($i+1))
+	sleep 1
+done

@@ -1,0 +1,17 @@
+#!/bin/bash
+total=0
+count=0
+if [ -d $1 ]
+then
+	for c in `ls -l $1 | tr -s ' ' | grep '^-' |  cut -d' ' -f5`	
+	do
+		total=$(($total + $c))
+		count=$(($count + 1))
+	done
+	echo "Total= $total"
+	echo "Count= $count"
+	avg=$(($total / $count))
+	echo "The average size of directory $1 is: $avg"
+else
+	echo "$1 not a directory!"
+fi

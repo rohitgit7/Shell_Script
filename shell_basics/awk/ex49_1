@@ -1,0 +1,12 @@
+#!/bin/bash
+file=$1
+for word in 'cat $1'
+do
+awk '{ 
+     for (i=1;i<=NF;i++)
+         if ( $i == $word)
+         c++
+     }
+
+END{print c}' $file
+done

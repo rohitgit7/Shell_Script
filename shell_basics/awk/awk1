@@ -1,0 +1,4 @@
+#!/bin/awk -f
+{full=$1; split(name,full,":")
+print "First",name[1]
+}

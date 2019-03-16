@@ -1,0 +1,21 @@
+#!/bin/bash
+dcount=0
+fcount=0
+
+if [ -d $1 ]
+then
+	for c in `ls $1`
+	do
+		#echo "$c"
+		if [ -f $c ]
+		then
+			fcount=$(($fcount + 1))
+		else
+			dcount=$(($dcount + 1))
+		fi
+	done	
+	echo "Files= $fcount"
+	echo "Directories= $dcount"
+else
+	echo "$1 not exists!"
+fi

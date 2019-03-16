@@ -1,0 +1,3 @@
+#!/bin/awk -f
+/^$/||/^\t\n$/{count++}
+END{print "The file has "count" empty lines" }

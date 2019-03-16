@@ -1,0 +1,7 @@
+#!/bin/bash
+for i in `cat in1 | cut -d' ' -f1`
+do
+	#echo $i
+	out=`grep  $i in1`
+	echo $out
+done

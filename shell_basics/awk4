@@ -1,0 +1,7 @@
+BEGIN{print "Split Array"}
+{split($3,dob,"/")
+	print "Day: ", dob[1];
+	print "Month: ", dob[2];
+	print "Year: ",dob[3]
+}
+

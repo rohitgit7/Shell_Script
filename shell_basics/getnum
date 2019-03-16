@@ -1,0 +1,34 @@
+#!/bin/bash
+echo -e "
+	 A] Nagar
+	 B] Pune
+	 C] Mumbai"
+read ch
+echo "Enter ur Name: "
+read name
+
+case $ch in
+A)
+record=`grep -i $name ~/scripts/tele_Nagar.txt | cut -d' ' -f2`
+onum=`grep -ni $name ~/scripts/tele_Nagar.txt | cut -d':' -f1`
+echo "Order no: $onum"
+echo "Your no. is: $record"
+;;
+
+B)
+record=`grep -i $name ~/scripts/tele_Pune.txt | cut -d' ' -f2`
+onum=`grep -ni $name ~/scripts/tele_Pune.txt | cut -d':' -f1`
+echo "Order no: $onum"
+echo "Your no. is: $record"
+;;
+
+C)
+record=`grep -i $name ~/scripts/tele_Mumbai.txt | cut -d' ' -f2`
+onum=`grep -ni $name ~/scripts/tele_Mumbai.txt | cut -d':' -f1`
+echo "Order no: $onum"
+echo "Your no. is: $record"
+;;
+esac
+
+
+

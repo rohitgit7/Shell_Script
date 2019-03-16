@@ -1,0 +1,5 @@
+#!/bin/bash
+if [ $1 != abcd ]
+then
+	echo wrong argument
+fi

@@ -1,0 +1,19 @@
+#!/bin/bash
+for file in $*
+do
+	if [ -e $file ]
+	then	
+		if [ -r $file ]
+		then
+			mv $file $HOME/scripts/
+			chmod u+x $HOME/scripts/`basename $file`
+		else
+			echo "No read permission!"
+			exit 2
+		fi
+	else
+		echo "File does not exists!"
+		exit 3
+	fi
+done
+

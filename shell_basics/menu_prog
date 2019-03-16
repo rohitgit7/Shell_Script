@@ -1,0 +1,6 @@
+#!/bin/bash
+select choice in who date pwd
+do
+	echo "$REPLY is $choice"
+	#$choice
+done

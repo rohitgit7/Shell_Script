@@ -1,0 +1,18 @@
+#!/bin/bash
+ex=0
+until [ $ex -eq 3 ]
+do
+echo -e"
+	1] Insert
+	2] Get Number
+	3] Exit"
+echo "Enter your choice"
+read ch
+
+case $ch in
+1)mknum;;
+2)getnum;;
+3)ex=3;;
+*)echo "Invalid Choice!"
+esac
+done

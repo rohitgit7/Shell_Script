@@ -1,0 +1,8 @@
+#!/bin/bash
+b=1
+a=0
+while [ $a -le 10 ]
+do
+	a=$(( $a + $b ))
+	echo $a
+done

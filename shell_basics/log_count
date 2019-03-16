@@ -1,0 +1,7 @@
+#!/bin/bash
+for user in `who|cut -d' ' -f1`
+do
+	echo -n "Number of times $user logged in: "
+	last|grep -c "^$user"
+done
+

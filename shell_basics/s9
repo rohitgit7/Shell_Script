@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "a) Date	b) Who"
+echo "c) ls	d) pwd"
+read ch
+case $ch in
+	a) date;;
+	b) who;;
+	c) ls;;
+	d) pwd;;
+	*) echo "Invalid choice!";;
+esac

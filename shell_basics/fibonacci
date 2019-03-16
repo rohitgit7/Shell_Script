@@ -1,0 +1,15 @@
+#!/bin/bash
+function fib()
+{
+	echo "Enter num: "
+	read num	
+	f=1
+	while [ $num -gt 1 ]
+	do
+		f=$(( $num + $f ))
+		num=$(( $num - 1 ))
+		#echo "$num"
+	done
+	echo "Fibonacci: $f"
+}
+fib

@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $1 = $2 ]
+then
+	echo Strings are same
+else
+	echo strings sre different
+fi
+

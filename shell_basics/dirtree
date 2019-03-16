@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -d $1 ]
+then
+	#for dr in `ls -R $1 | grep ':$' | cut -d":" -f1`
+	for dr in `ls -l $1 | grep '^-' | tr -s ' ' |  cut -d' ' -f9`
+	do
+		#dr1=`basename $dr`	
+		echo -e "\t$dr"
+		dirtree $dr
+	done
+else
+	echo "$1 not a directory"
+fi

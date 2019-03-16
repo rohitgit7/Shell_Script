@@ -1,0 +1,267 @@
+ABCD
+
+
+MAN(7)                       TABLES                        MAN(7)
+
+
+
+NAME
+     man - macros to format Reference Manual pages
+
+SYNOPSIS
+     nroff  -man  file ...
+
+     troff  -man  file ...
+
+DESCRIPTION
+     These macros are used to lay out the reference pages in this
+     manual.
+
+     Any text argument _t may be zero to six words.  Quotes may be
+     used  to  include blanks in a `word'.  If _t_e_x_t is empty, the
+     special treatment is applied to the  next  input  line  with
+     text to be printed.  In this way .I may be used to italicize
+     a whole line, or .SM followed  by  .B  to  make  small  bold
+     letters.
+
+     A prevailing indent distance is remembered  between  succes-
+     sive indented paragraphs, and is reset to default value upon
+     reaching  a  non-indented  paragraph.   Default  units   for
+     indents _i are ens.
+
+     Type font and size are reset to default values  before  each
+     paragraph,  and  after processing font and size setting mac-
+     ros.
+
+     These strings are predefined by -man:
+
+     \*R  `(Reg)', trademark symbol in _t_r_o_f_f.
+
+     \*S  Change to default type size.
+
+FILES
+     /usr/lib/tmac/tmac.an
+
+SEE ALSO
+     troff(1), nroff(1), man(1)
+
+     _T_h_e -_m_a_n _M_a_c_r_o _P_a_c_k_a_g_e, in _F_o_r_m_a_t_t_i_n_g _D_o_c_u_m_e_n_t_s _o_n  _t_h_e  _S_u_n
+     _W_o_r_k_s_t_a_t_i_o_n.
+
+REQUESTS
+Request      Cause If no    Explanation
+             Break Argument
+.B _t         no    _t=n.t.l.*Text _t is bold.
+.BI _t        no    _t=n.t.l. Join words of _t alternating bold  and
+                            italic.
+.BR _t        no    _t=n.t.l. Join words of _t alternating bold  and
+                            Roman.
+.DT          no    .5i 1i...Restore default tabs.
+
+
+
+Sun Release 3.2     Last change: 5 June 1986                    1
+
+
+
+
+
+
+MAN(7)                       TABLES                        MAN(7)
+
+
+
+.HP _i        yes   _i=p.i.*  Set prevailing  indent  to  _i.  Begin
+                            paragraph with hanging indent.
+.I _t         no    _t=n.t.l. Text _t is italic.
+.IB _t        no    _t=n.t.l. Join words of  _t  alternating  italic
+                            and bold.
+.IP _x _i      yes   _x=""     Same as .TP with tag _x.
+.IR _t        no    _t=n.t.l. Join words of  _t  alternating  italic
+                            and Roman.
+.LP          yes   -        Same as .PP.
+.PD _d        no    _d=.4v    Interparagraph distance is _d.
+.PP          yes   -        Begin  paragraph.    Set   prevailing
+                            indent to .5i.
+.RE          yes   -        End of relative indent.  Set prevail-
+                            ing indent to amount of starting .RS.
+.RB _t        no    _t=n.t.l. Join words of _t alternating Roman and
+                            bold.
+.RI _t        no    _t=n.t.l. Join words of _t alternating Roman and
+                            italic.
+.RS _i        yes   _i=p.i.   Start relative indent, move left mar-
+                            gin  in  distance  _i.  Set prevailing
+                            indent to .5i for nested indents.
+.SH _t        yes   _t=n.t.l. Subhead.
+.SM _t        no    _t=n.t.l. Text _t is small.
+.TH _n _c _d    yes   -        Begin page named _n of chapter _c; _d is
+                            the  date  of the most recent change.
+                            Sets prevailing indent  and  tabs  to
+py
+q
+           
+q
+.TP _i        yes   _i=p.i.   Set prevailing  indent  to  _i.  Begin
+                            indented  paragraph  with hanging tag
+                            given by  next  text  line.   If  tag
+                            doesn't  fit,  place  it  on separate
+                            line.
+
+* n.t.l. = next text line; p.i. = prevailing indent
+
+CONVENTIONS
+     A typical manual page for a command or function is laid  out
+     as follows:
+
+     .TH TITLE [1-8]
+          The name of the  command  or  function  in  upper-case,
+          which  serves  as the title of the manual page. This is
+          followed by the number  of  the  section  in  which  it
+          appears.
+
+     .SH NAME name (or comma-separated list of names) -  one-line
+          summary
+          The name, or list of names, by  which  the  command  is
+          called,  followed by a dash and then a one-line summary
+          of the action performed.  All in roman font, this  sec-
+          tion  contains  no _t_r_o_f_f(1) commands or escapes, and no
+          macro requests.  It is used to generate  the  _w_h_a_t_i_s(1)
+
+
+
+Sun Release 3.2     Last change: 5 June 1986                    2
+
+
+
+
+
+
+MAN(7)                       TABLES                        MAN(7)
+
+
+
+          database.
+
+     .SH SYNOPSIS
+
+          Commands:
+
+               The syntax of the command  and  its  arguments  as
+               typed  on  the  command line.  When in boldface, a
+               word must be typed exactly as  printed.   When  in
+               italics, a word can be replaced with text that you
+               supply.  Syntactic symbols appear in roman face:
+
+               [ ]  An argument, when surrounded by  brackets  is
+                    optional.
+
+               |    Arguments separated by  a  vertical  bar  are
+                    exclusive.   You  can  supply  only item from
+                    such a list.
+
+               ...  Arguments  followed  by  an  elipsis  can  be
+                    repeated.   When  an elipsis follows a brack-
+                    eted set, the expression within the  brackets
+                    can be repeated.
+
+          Functions:
+
+               If required, the  data  declaration,  or  #include
+               directive,  is shown first, followed by the  func-
+               tion declaration. Otherwise, the function declara-
+               tion is shown.
+
+     .SH DESCRIPTION
+          A narrative description of the command or  function  in
+          detail,  including how it interacts with files or data,
+          and how it handles the standard input, standard  output
+          and standard error.
+
+          Filenames, and  references  to  commands  or  functions
+          described  elswhere in the manual, are italicised.  The
+          names of options, variables and other literal terms are
+          in boldface.
+
+     .SH OPTIONS
+          The list of options along with  a  description  of  how
+          each affects the commands operation.
+
+     .SH FILES
+          A list of files associated with the  command  or  func-
+          tion.
+
+     .SH "SEE ALSO"
+          A  comma-separated  list  of  related   manual   pages,
+
+
+
+Sun Release 3.2     Last change: 5 June 1986                    3
+
+
+
+
+
+
+MAN(7)                       TABLES                        MAN(7)
+
+
+
+          followed  by  references  to other published materials.
+          This section contains no _t_r_o_f_f(1) escapes or  commands,
+          and no macro requests.
+
+     .SH DIAGNOSTICS
+          A list of diagnostic messages  and  an  explanation  of
+          each.
+
+     .SH BUGS
+          A description of limitations, known defects, and possi-
+          ble problems associated with the command or function.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sun Release 3.2     Last change: 5 June 1986                    4
+
+
+

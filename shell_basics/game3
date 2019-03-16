@@ -1,0 +1,49 @@
+#!/bin/bash
+ch=1
+until [ $ch -eq 3 ]
+do
+echo -e "
+	1.Play
+	2.Show Best Score
+	3.Exit"
+echo "Enter ur choice: "
+read ch
+
+case $ch in
+1)
+	echo "Enter ur name: "
+	read name
+	num=`echo $(($RANDOM%20))`
+	echo $num
+	guess=0
+	count=0
+	until [ $guess = $num ]
+	do
+		echo "Guess no.:"
+		read guess
+		count=$(($count + 1))
+	if [ $guess -lt $num ]
+	then
+		echo "Too Low!"
+	else
+		echo "Too High!"
+	fi
+	done
+
+	score=$(($count * 10))
+	echo "You Win! & Score is: $score"
+	echo $num
+	echo $name $score >> score.txt
+;;
+2)
+	result=`cat score.txt | sort -n -k2 | head -1`
+	echo "Top scorer is: $result"
+;;
+
+3) ch=3
+;;
+*) echo "Invalid Choice!"
+;;
+esac
+
+done

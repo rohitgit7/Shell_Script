@@ -1,0 +1,29 @@
+#!/bin/bash
+t=`date +"%H:%M"`
+if [ $1 = -m ]
+then
+	echo "-m"
+	echo $t
+	until [ $t = "21:16" ] >& /dev/null
+	do
+		sleep 1
+		t=`date +"%H:%M"`
+		#echo $t
+	done
+	echo "Time to leave "
+elif [ $1 = -l ]
+then	
+	echo "-l"
+	echo $t
+	until [ $t = "21:20" ] >& /dev/null
+	do
+		sleep 1	
+		t=`date +"%H:%M"`
+	done
+	echo "Time to logout"
+	#logout
+	killall5
+else
+	echo "Invalid input(-m/-l)"
+fi
+

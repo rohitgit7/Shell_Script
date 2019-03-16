@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ ! -r $1 ]
+then
+	echo "$1 has no read permissin"
+else
+	cat $1
+fi

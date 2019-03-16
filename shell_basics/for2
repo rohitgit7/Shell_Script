@@ -1,0 +1,6 @@
+#!/bin/bash
+for argd 
+do
+	echo $argd is $1
+	shift
+done

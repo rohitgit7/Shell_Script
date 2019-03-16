@@ -1,0 +1,8 @@
+#!/bin/bash
+source=$1
+shift
+for w in `cat $source`
+do
+	echo $w
+	grep -i $w $*
+done

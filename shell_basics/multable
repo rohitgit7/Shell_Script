@@ -1,0 +1,8 @@
+#!/bin/bash
+m=1
+while [ $m -le 10 ]
+do
+	table=$(($1 * $m))
+	echo "$table"
+	m=$(($m + 1))
+done

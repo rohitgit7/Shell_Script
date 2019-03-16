@@ -1,0 +1,3 @@
+BEGIN{FS=":"}
+{print $1,$3}
+END{print "There are",NR,"users"}

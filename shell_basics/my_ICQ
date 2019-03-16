@@ -1,0 +1,20 @@
+#!/bin/bash
+tme=02
+until [ $tme = "07" ] #2> /dev/null
+do
+	echo `who | cut -d' ' -f1 | sort > old_who.txt`
+	tme=`date +"%H"`
+	#echo $tme
+
+	sleep 300
+	echo `who | cut -d' ' -f1 | sort > new_who.txt`
+
+	new_users=`comm -31 old_who.txt new_who.txt`
+	echo -e "New-Users:\n\t$new_users"
+
+	old_users=`comm -32 old_who.txt new_who.txt`
+	echo -e "Old-Users:\n\t$old_users"
+
+done
+
+	

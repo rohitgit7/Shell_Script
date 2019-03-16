@@ -1,0 +1,13 @@
+#!/bin/bash
+word=$1
+shift
+while [[ -n $1 ]] && grep $word $1  > /dev/null
+do
+	shift
+done
+if [[ -n "$1" ]]
+then
+	echo "First file not containing $word is $1"
+else
+	echo "All the files contain the word $word"
+fi

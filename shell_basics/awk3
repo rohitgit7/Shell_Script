@@ -1,0 +1,8 @@
+BEGIN {FS=":"}
+	/^u/{passwd[$1]=$3}
+END {
+	for(index in passwd)
+	{
+		{print index "-->" passwd[index]}
+	}	
+   }

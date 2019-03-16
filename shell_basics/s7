@@ -1,0 +1,41 @@
+#!/bin/bash
+if [ -f $1 ]
+then
+	echo " $1 is a Regular file!"
+	if [ -r $1 ]
+	then
+		echo "Do u want to see(y/n): "
+		read ch
+		if [ $ch = 'y' ]
+		then
+			cat $1
+		else
+			echo "You are not interested!"
+			exit 3
+		fi
+	else
+		echo "No read permission"
+		exit 4
+	fi
+elif [ -d $1 ]
+then
+	echo "$1 is a Directory!"
+	if [ -r $1 ]
+	then
+		echo "Do u want to see(y/n): "
+		read ch
+			if [ $ch = 'y' ]
+			then
+			ls -l $1
+		else
+			echo "You are not interested!"
+			exit 3
+		fi
+	else
+		echo "No read Permission"
+		exit 3	
+	fi
+else
+	echo "$1 is neither File nor Directory"
+	exit 5
+fi

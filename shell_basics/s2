@@ -1,0 +1,8 @@
+#!/bin/bash
+if cmp -s $1 $2
+then
+	echo "Deleting file $2"
+	rm $2
+else
+	echo "Files Differ"
+fi

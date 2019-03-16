@@ -1,0 +1,4 @@
+#!/bin/bash
+num=$(($RANDOM%9999))
+echo $num
+

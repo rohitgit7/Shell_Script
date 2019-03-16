@@ -1,0 +1,19 @@
+#!/bin/bash
+if [ -d $1 ]
+then
+	for file in `ls $1`
+	do
+		echo $file
+		if [ ! -d $file ]
+		then
+			if [ -s $file ]
+			then
+				echo "$file is greter than zero!"
+			else
+				rm -i $1/$file
+			fi
+		fi
+	done	
+else
+	echo "$1 not present!"
+fi

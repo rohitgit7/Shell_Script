@@ -1,0 +1,2 @@
+/Steve/{print "Hello",$2}
+/Bill/{print $1, "earns", $5*8}

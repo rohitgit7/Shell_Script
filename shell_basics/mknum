@@ -1,0 +1,22 @@
+#!/bin/bash
+echo -e "
+	 A] Nagar
+	 B] Pune
+	 C] Mumbai"
+read ch
+echo "Enter ur name: "
+read a
+echo "Enter ur No.: "
+read b
+
+if echo $b | egrep '[0-9]+' 
+then
+case $ch in
+A)echo $a $b Nagar >> ~/scripts/tele_Nagar.txt ;;
+B)echo $a $b Pune >> ~/scripts/tele_Pune.txt ;;
+C)echo $a $b Mumbai >> ~/scripts/tele_Mumbai.txt ;;
+esac
+
+else
+	echo "Invalid Number!"
+fi

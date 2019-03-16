@@ -1,0 +1,5 @@
+#!/bin/bash
+tmp=`sed -n '6p' <demo`
+echo $tmp
+`res=`sed -n 's/\(\/\*\).*\(\*\/\)/\1$tmp\2/' <demo`
+echo $res

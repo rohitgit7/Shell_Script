@@ -1,0 +1,6 @@
+#!/bin/bash
+#echo $#
+for org in IBM Sela Sun
+do
+	echo $org
+done

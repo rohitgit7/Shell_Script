@@ -1,0 +1,1 @@
+ls -l .| awk '/^d/{print $1,$9; cnt++}END{if(cnt<5){print "There are less directories"}else{print cnt}}'

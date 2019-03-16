@@ -1,0 +1,6 @@
+#!/bin/bash
+for t in $*
+do
+	tail $t
+	read a
+done
